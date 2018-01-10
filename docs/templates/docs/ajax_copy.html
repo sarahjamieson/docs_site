@@ -1,0 +1,13 @@
+{% if msg == 'success' %}
+
+    <div class="alert alert-success">
+        <strong>iPassport code copied to clipboard.</strong>
+    </div>
+
+{% else %}
+
+    <div class="alert alert-warning">
+        <strong>Failed to copy to clipboard - does this document have an iPassport code?</strong>
+    </div>
+
+{% endif %}

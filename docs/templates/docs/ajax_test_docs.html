@@ -1,0 +1,50 @@
+{% if docs %}
+
+    <div id="msg"></div>
+
+    {% regroup docs by test_id.chemistry_id.category_id.name as category_list %}
+
+    {% for category in category_list %}
+
+        {% regroup category.list by test_id.chemistry_id.name as chemistry_list %}
+
+        {% for chemistry in chemistry_list %}
+
+            <h3 style="margin-bottom: 20px; margin-top: 20px;">{{ chemistry.grouper }}</h3>
+
+            {% regroup chemistry.list by test_id.name as test_list %}
+
+            {% for test in test_list %}
+
+                <h4 style="margin-left: 20px;">{{ test.grouper }}</h4>
+
+                <ul style="margin-left: 20px;">
+
+                {% for item in test.list %}
+
+                    <li>
+                        {% if item.link %}
+                            {{ item.type_id.type }}: <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                        {% elif item.code %}
+                            {{ item.type_id.type }}: {{ item.title }} <span id="{{ item.code }}" class="glyphicon glyphicon-copy clickable"></span>
+                        {% else %}
+                            {{ item.type_id.type }}: {{ item.title }}
+                        {% endif %}
+                    </li>
+
+                {% endfor %}
+
+                </ul>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    {% endfor %}
+
+{% else %}
+
+
+<p>Currently under development.</p>
+
+{% endif %}

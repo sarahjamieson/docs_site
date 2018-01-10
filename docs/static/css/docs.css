@@ -1,0 +1,26 @@
+.clickable {
+        cursor: pointer;
+}
+.node {
+    cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: #005EB8;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #E8EDEE;
+  stroke-width: 2px;
+}
+
+th, td {
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    {% include 'docs/imports.html' %}
+
+    <title>WMRGL Bioinformatics Documentation</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">WMRGL Bioinformatics</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'general' %}"><i class="fa fa-database" aria-hidden="true"></i> General</a>
+                </li>
+                <li>
+                    <a href="{% url 'ngs' %}"><i class="fa fa-flask" aria-hidden="true"></i> NGS</a>
+                </li>
+                <li>
+                    <a href="{% url 'training' %}"><i class="fa fa-users" aria-hidden="true"></i> Training</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% extends 'docs/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <h3 style="text-align: center;">Training Documentation for Bioinformatics Staff</h3>
+</div>
+
+{% if comps %}
+
+<div class="container-fluid" style="text-align: center;">
+
+    <h4><i>Competency Records</i></h4>
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <div class="table-responsive">
+
+            <table id="training-table" class="table table-bordered">
+
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Competency</th>
+                        <th>Renewal Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                <!--
+
+                {% for key, value in comps.items %}
+
+                    {% for key1, value1 in value.items %}
+
+                        <tr>
+
+                            <td>{{ key }}</td>
+                            <td>{{ key1 }}</td>
+
+                            {% if value1 %}
+                                <td>
+                                    <a href="{{ value1.file_path }}">Complete</a>*
+                                    <span id="{{ value1.file_path }}" class="glyphicon glyphicon-copy clickable"></span>
+                                </td>
+                                <td>{{ value1.renewal_date|date:"d M Y" }}</td>
+                            {% else %}
+                                <td>Not yet complete</td>
+                                <td>-</td>
+                            {% endif %}
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% endfor %}
+
+                -->
+                {% for c in comps %}
+
+                    <tr>
+                        <td>{{ c.employee_id.name }}</td>
+                        <td><a href="{{ c.file_path }}">{{ c.competency_id.title }}</a></td>
+                        <td>{{ c.renewal_date|date:"d M Y" }}</td>
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            (Please note: links only work with <a href="https://chrome.google.com/webstore/detail/locallinks/jllpkdkcdjndhggodimiphkghogcpida">LocalLinks Chrome Extension</a> enabled.
+            <br/>Alternatively, right click on the link, copy link address and paste into a new tab.)
+        </p>
+
+    </div>
+
+</div>
+
+
+{% else %}
+
+<div class="container-fluid" style="text-align: center;">
+    <p>No competencies recorded.</p>
+</div>
+
+{% endif %}
+
+{% endblock %}
