@@ -13,4 +13,4 @@ To use:
 `$ python manage.py runserver <IP address>`
 
 
-Add data via the Admin site (/admin/) - see database schema before adding data ().
+Add data via the Admin site (/admin/) - see [database schema](../images/doc_app_schema.png) before adding data .
